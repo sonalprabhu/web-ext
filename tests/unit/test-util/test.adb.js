@@ -1123,6 +1123,7 @@ describe('utils/adb', () => {
       await assert.isRejected(
         promise, 'Timeout while waiting for the Android Firefox Debugger Socket'
       );
+      
       sinon.assert.called(adb.fakeADBClient.shell);
       sinon.assert.alwaysCalledWithMatch(
         adb.fakeADBClient.shell,
@@ -1131,7 +1132,7 @@ describe('utils/adb', () => {
       );
     });
 
-    it('reminds the user to enable remote debugging', async () => {
+    it('reminds the user to enable remote_debugging', async () => {
       const adb = getFakeADBKit({
         adbClient: {
           shell: sinon.spy(() => Promise.resolve('')),
